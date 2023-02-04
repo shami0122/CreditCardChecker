@@ -51,7 +51,39 @@ const findInvalidCards = (nestedArr) => {
     return output;
 }
 
-console.log(findInvalidCards(batch));
+const idInvalidCardCompanies = (nestedArr) => {
+    const output = [];
+    for (let i = 0; i < nestedArr.length; i++){
+        switch (nestedArr[i][0]){
+            case 3:
+                if(!output.includes("Amex (American Express)")){
+                    output.push("Amex (American Express)");
+                }
+                break;
+            case 4:
+                if(!output.includes("Visa")){
+                    output.push("Visa");
+                }
+                break;
+            case 5:
+                if(!output.includes("Mastercard")){
+                    output.push("Mastercard");
+                }
+                break;
+            case 6:
+                if(!output.includes("Discover")){
+                    output.push("Discover");
+                }
+                break;
+            default:
+                console.log("Company not found");
+                break;
+        }
+    }
+    return output;
+}
+
+console.log(idInvalidCardCompanies(findInvalidCards(batch)));
 
 
 
